@@ -12,7 +12,7 @@ A simple tool to compile Ruby code to JavaScript using Opal.
 var opalCompiler = require('bestikk-opal-compiler');
 
 var compiler = opalCompiler({
-  dynamicRequireLevel: 'error',
+  dynamicRequireLevel: 'ignore',
   defaultPaths: ['special/directory']
 });
 compiler.compile('hello.rb', 'hello.js'); // <1>
