@@ -1,6 +1,7 @@
 var log = require('bestikk-log');
 var Builder = require('opal-compiler').Builder;
 var fs = require('fs');
+var path = require('path');
 
 function OpalCompiler (config) {
   this.config = config || {};
@@ -11,7 +12,14 @@ function OpalCompiler (config) {
 
 OpalCompiler.prototype.compile = function (require, outputFile, includes) {
   var builder = Builder.$new();
-  builder.$append_paths('node_modules/opal-compiler/src/stdlib', 'lib');
+  var stdlibPath;
+  var stdlibHierarchicalPath = path.join(__dirname, 'node_modules', 'opal-compiler', 'src', 'stdlib');
+  if (fs.existsSync(stdlibHierarchicalPath)) {
+    stdlibPath = stdlibHierarchicalPath; // hierarchical structure (npm < 3.x)
+  } else {
+    stdlibPath = path.join(__dirname, '..', 'opal-compiler', 'src', 'stdlib'); // flat structure (npm >= 3.x)
+  }
+  builder.$append_paths(path.join(__dirname, 'node_modules', 'opal-compiler', 'src', 'stdlib'), 'lib');
   for (var i = 0; i < this.defaultPaths.length; i++) {
     builder.$append_paths(this.defaultPaths[i]);
   }
