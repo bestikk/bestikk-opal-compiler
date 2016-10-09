@@ -13,16 +13,19 @@ function OpalCompiler (config) {
 OpalCompiler.prototype.compile = function (require, outputFile, includes) {
   var builder = Builder.$new();
   var stdlibPath;
-  var stdlibHierarchicalPath = path.resolve(__dirname, 'node_modules', 'opal-compiler', 'src', 'stdlib');
-  var stdlibFlatPath = path.resolve(__dirname, '..', 'opal-compiler', 'src', 'stdlib'); // flat structure (npm >= 3.x)
+  // hierarchical structure (npm < 3.x) 
+  // do not use path.resolve or path.join because this is not working as expected on Windows
+  var stdlibHierarchicalPath = 'node_modules/opal-compiler/src/stdlib';
+  // flat structure (npm >= 3.x)
+  var stdlibFlatPath = path.resolve(__dirname, '..', 'opal-compiler', 'src', 'stdlib');
   if (fs.existsSync(stdlibHierarchicalPath)) {
-    stdlibPath = stdlibHierarchicalPath; // hierarchical structure (npm < 3.x)
+    stdlibPath = stdlibHierarchicalPath;
   } else if (fs.existsSync(stdlibFlatPath)) {
-    stdlibPath = stdlibFlatPath; // flat structure (npm >= 3.x)
-  } else {
-    stdlibPath = path.join('node_modules', 'opal-compiler', 'src', 'stdlib');
+    stdlibPath = stdlibFlatPath;
   }
-  builder.$append_paths(stdlibPath);
+  if (typeof stdlibPath !== 'undefined') { 
+    builder.$append_paths(stdlibPath);
+  }
   builder.$append_paths('lib');
   for (var i = 0; i < this.defaultPaths.length; i++) {
     builder.$append_paths(this.defaultPaths[i]);
