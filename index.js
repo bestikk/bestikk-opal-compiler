@@ -13,17 +13,9 @@ function OpalCompiler (config) {
 OpalCompiler.prototype.compile = function (require, outputFile, includes) {
   var builder = Builder.$new();
   var stdlibPath;
-  // hierarchical structure (npm < 3.x) 
-  var stdlibHierarchicalPath = path.resolve(__dirname, 'node_modules', 'opal-compiler', 'src', 'stdlib');
-  var stdlibRelativePath = 'node_modules/opal-compiler/src/stdlib';
-  // flat structure (npm >= 3.x)
-  var stdlibFlatPath = path.resolve(__dirname, '..', 'opal-compiler', 'src', 'stdlib');
-  log.debug('__dirname: ' + __dirname + ', exits? ' + fs.existsSync(__dirname));
-  log.debug('path.resolve(__dirname): ' + path.resolve(__dirname) + ', exits? ' + fs.existsSync(path.resolve(__dirname)));
-  log.debug('path.resolve(__dirname, \'..\'): ' + path.resolve(__dirname, '..') + ', exits? ' + fs.existsSync(path.resolve(__dirname, '..')));
-  log.debug('stdlibFlatPath: ' + stdlibFlatPath + ', exits? ' + fs.existsSync(stdlibFlatPath));
-  log.debug('stdlibHierarchicalPath: ' + stdlibHierarchicalPath + ', exits? ' + fs.existsSync(stdlibHierarchicalPath));
-  log.debug('stdlibRelativePath: ' + stdlibRelativePath + ', exits? ' + fs.existsSync(stdlibRelativePath));
+  // do not use absolute path because append_paths does not detect absolute path on Windows
+  var stdlibFlatPath = 'node_modules/opal-compiler/src/stdlib'; // flat structure (npm >= 3.x)
+  var stdlibHierarchicalPath = 'node_modules/bestikk-opal-compiler/node_modules/opal-compiler/src/stdlib'; // hierarchical structure (npm < 3.x)
   if (fs.existsSync(stdlibHierarchicalPath)) {
     stdlibPath = stdlibHierarchicalPath;
   } else if (fs.existsSync(stdlibFlatPath)) {
