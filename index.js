@@ -13,11 +13,11 @@ function OpalCompiler (config) {
 OpalCompiler.prototype.compile = function (require, outputFile, includes) {
   var builder = Builder.$new();
   var stdlibPath;
-  var stdlibHierarchicalPath = path.join(__dirname, 'node_modules', 'opal-compiler', 'src', 'stdlib');
+  var stdlibHierarchicalPath = path.join('node_modules', 'opal-compiler', 'src', 'stdlib');
   if (fs.existsSync(stdlibHierarchicalPath)) {
     stdlibPath = stdlibHierarchicalPath; // hierarchical structure (npm < 3.x)
   } else {
-    stdlibPath = path.join(__dirname, '..', 'opal-compiler', 'src', 'stdlib'); // flat structure (npm >= 3.x)
+    stdlibPath = path.join('..', 'opal-compiler', 'src', 'stdlib'); // flat structure (npm >= 3.x)
   }
   builder.$append_paths(stdlibPath, 'lib');
   for (var i = 0; i < this.defaultPaths.length; i++) {
