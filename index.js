@@ -19,7 +19,7 @@ OpalCompiler.prototype.compile = function (require, outputFile, includes) {
   } else {
     stdlibPath = path.join(__dirname, '..', 'opal-compiler', 'src', 'stdlib'); // flat structure (npm >= 3.x)
   }
-  builder.$append_paths(path.join(__dirname, 'node_modules', 'opal-compiler', 'src', 'stdlib'), 'lib');
+  builder.$append_paths(stdlibPath, 'lib');
   for (var i = 0; i < this.defaultPaths.length; i++) {
     builder.$append_paths(this.defaultPaths[i]);
   }
