@@ -1,12 +1,16 @@
-= Bestikk Opal Compiler
+# Bestikk Opal Compiler
+
+ifdef::env-github[]
+image:http://img.shields.io/npm/v/bestikk-opal-compiler.svg[npm version, link=https://www.npmjs.org/package/bestikk-opal-compiler]
+endif::[]
 
 A simple tool to compile Ruby code to JavaScript using Opal.
 
-== Install
+## Install
 
  $ npm i --save-dev bestikk-opal-compiler
 
-== Usage
+## Usage
 
 ```javascript
 var opalCompiler = require('bestikk-opal-compiler');
