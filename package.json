@@ -24,7 +24,7 @@
   "homepage": "https://github.com/bestikk/bestikk-opal-compiler#readme",
   "dependencies": {
     "bestikk-log": "^0.1.0",
-    "opal-compiler": "0.10.1-integration2"
+    "opal-compiler": "0.10.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
