@@ -1,6 +1,7 @@
 # Bestikk Opal Compiler
 
 ifdef::env-github[]
+image:http://img.shields.io/travis/bestikk/bestikk-opal-compiler.svg[Travis build status, link=https://travis-ci.org/bestikk/bestikk-opal-compiler]
 image:http://img.shields.io/npm/v/bestikk-opal-compiler.svg[npm version, link=https://www.npmjs.org/package/bestikk-opal-compiler]
 endif::[]
 
