@@ -215,15 +215,15 @@ once@^1.3.0:
   dependencies:
     wrappy "1"
 
-opal-compiler@0.11.0-integration10:
-  version "0.11.0-integration10"
-  resolved "https://registry.yarnpkg.com/opal-compiler/-/opal-compiler-0.11.0-integration10.tgz#b73674077f91acc6e076229430ed445e988aebe9"
+opal-compiler@0.11.0-rc1+934d65a:
+  version "0.11.0-rc1"
+  resolved "https://registry.yarnpkg.com/opal-compiler/-/opal-compiler-0.11.0-rc1.tgz#532faaf710a11a9b3f015ed80651ab3edd12b2d0"
   dependencies:
-    opal-runtime "0.11.0-integration10"
+    opal-runtime "0.11.0-rc1+934d65a"
 
-opal-runtime@0.11.0-integration10:
-  version "0.11.0-integration10"
-  resolved "https://registry.yarnpkg.com/opal-runtime/-/opal-runtime-0.11.0-integration10.tgz#7cd9546ecf9f43e65693eccb8c8ed91967e7d63b"
+opal-runtime@0.11.0-rc1+934d65a:
+  version "0.11.0-rc1"
+  resolved "https://registry.yarnpkg.com/opal-runtime/-/opal-runtime-0.11.0-rc1.tgz#6f1cc64d82f09eb2af5b765d13e717ccdf2ab0f0"
   dependencies:
     glob "6.0.4"
 
