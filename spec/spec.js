@@ -35,5 +35,13 @@ describe('Bestikk', function() {
       assert(fs.existsSync(OUTPUT_FILE));
       assert.include(fs.readFileSync(OUTPUT_FILE, {encoding: 'utf8'}), 'Hello world');
     });
+
+    it('should create a module if the requirable option is used', function() {
+      var compiler = new main({requirable: true});
+      assert(!fs.existsSync(OUTPUT_FILE));
+      compiler.compile('hello.rb', OUTPUT_FILE, ['spec']);
+      assert(fs.existsSync(OUTPUT_FILE));
+      assert.include(fs.readFileSync(OUTPUT_FILE, {encoding: 'utf8'}), 'Opal.modules["hello"]');
+    });
   });
 });
