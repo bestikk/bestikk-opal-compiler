@@ -1,6 +1,6 @@
 {
   "name": "bestikk-opal-compiler",
-  "version": "0.3.0-integration7",
+  "version": "0.3.1-integration7",
   "description": "A simple tool to compile Ruby code to JavaScript using Opal",
   "main": "index.js",
   "scripts": {
